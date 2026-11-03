@@ -1,0 +1,14 @@
+services:
+    - type: web
+    name: basa-audit-intelligence-usa-v21
+    env: python
+    plan: free
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run streamlit_app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --server.enableCORS false --server.enableXsrfProtection false
+    autoDeploy: true
+    envVars:
+            - key: PYTHON_VERSION
+        value: 3.11.0
+            - key: STREAMLIT_THEME_BASE
+        value: dark
