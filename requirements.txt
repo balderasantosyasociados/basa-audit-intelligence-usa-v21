@@ -3,5 +3,8 @@ pandas
 openpyxl
 python-docx
 PyMuPDF
+pyMuExcel
+pyMuWord
+PyMuTxT
 plotly
 pillow
