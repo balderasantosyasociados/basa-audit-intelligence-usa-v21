@@ -1,4 +1,4 @@
-# BASA AUDIT INTELLIGENCE USA V21 - FINAL FULL - 21 MODULOS - SINGLE FILE
+# BASA AUDIT INTELLIGENCE USA V21- 21 MODULOS - SINGLE FILE
 import streamlit as st
 import pandas as pd
 import hashlib, datetime, io
@@ -30,7 +30,7 @@ if not st.session_state.logged:
     st.stop()
 
 with st.sidebar:
-    st.write(f"**{st.session_state.user}** - {st.session_state.role}")
+    st.write(f"*{st.session_state.user}* - {st.session_state.role}")
     st.write(f"💳 Cuenta: {PAGOS_CUENTA}")
     if st.button("Logout"): st.session_state.logged=False; st.rerun()
     modulos=["01 Dashboard Radar","02 Login ID ITIN NSS","03 Contrato SHA256","04 Carga Multiformato","05 Extraccion W2 1099","06 Validacion IRS","07 Matriz Hallazgos","08 Fusion IA","09 Historico Auditoria","10 Usuarios y Roles","11 Excel 2 Hojas","12 Word Supervisor","13 ZIP Soportes","14 Pagos 08694150021","15 Notificaciones CPA","16 Audit Trail SHA256","17 Internacionalizacion USA RD","18 Presupuesto Barras","19 Levantamiento Solo Admin","20 Firma Digital","21 Admin Cuentas RD USA"]
@@ -54,7 +54,7 @@ elif modulo.startswith("11"):
             pd.DataFrame([{"Hallazgo":"W2 OK","Cuenta":PAGOS_CUENTA,"Validacion":"Formato V21"}]).to_excel(writer, sheet_name="Hallazgos_IRS", index=False)
         st.download_button("Descargar Excel V21", out.getvalue(), f"BASA_AUDIT_V21_{PAGOS_CUENTA}.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 elif modulo.startswith("14"):
-    st.markdown(f"**Cuenta Ahorros Pesos Formato V21 Profesional Sin Puntos:** {PAGOS_CUENTA} - Titular {PAGOS_TITULAR} - BanReservas")
+    st.markdown(f"*Cuenta Ahorros Pesos Formato V21 Profesional Sin Puntos:* {PAGOS_CUENTA} - Titular {PAGOS_TITULAR} - BanReservas")
     comp=st.file_uploader("Subir comprobante pago", type=["jpg","png","pdf"])
     if comp: st.success(f"Comprobante recibido Cuenta {PAGOS_CUENTA} SHA256 {sha256_hash(comp.name)[:12]}")
 else:
