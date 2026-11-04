@@ -54,7 +54,7 @@ elif modulo.startswith("11"):
             pd.DataFrame([{"Hallazgo":"W2 OK","Cuenta":PAGOS_CUENTA,"Validacion":"Formato V21"}]).to_excel(writer, sheet_name="Hallazgos_IRS", index=False)
         st.download_button("Descargar Excel V21", out.getvalue(), f"BASA_AUDIT_V21_{PAGOS_CUENTA}.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 elif modulo.startswith("14"):
-    st.markdown(f"*Cuenta Ahorros Pesos Formato V21 Profesional Sin Puntos:* {PAGOS_CUENTA} - Titular {PAGOS_TITULAR} - BanReservas")
+    st.markdown(f"*Cuenta Ahorros Pesos Formato V21 Profesional Sin Puntos:* {PAGOS_CUENTA} - Titular {PAGOS_TITULAR} - BHD")
     comp=st.file_uploader("Subir comprobante pago", type=["jpg","png","pdf"])
     if comp: st.success(f"Comprobante recibido Cuenta {PAGOS_CUENTA} SHA256 {sha256_hash(comp.name)[:12]}")
 else:
